@@ -1,19 +1,21 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { AppState } from '../redux/rootReducer';
 import Post from './Post';
 import { PostType } from './post.model';
 
-interface PostsListProps {
-    posts: PostType[];
+interface LinkStateProps {
+    syncPosts?: PostType[];
 }
 
-export default function PostsList({ posts }: PostsListProps): JSX.Element {
+function PostsList({ syncPosts }: LinkStateProps): JSX.Element {
     return (
         <div>
-            {!posts.length ? (
+            {!syncPosts!.length ? (
                 <p>{'NO POSTS'}</p>
             ) : (
                 <ul>
-                    {posts.map((post) => (
+                    {syncPosts!.map((post) => (
                         <li key={post.id}>
                             <Post title={post.title} />
                         </li>
@@ -23,3 +25,9 @@ export default function PostsList({ posts }: PostsListProps): JSX.Element {
         </div>
     );
 }
+
+function mapStateToProps(state: AppState): LinkStateProps | any {
+    return { syncPosts: state.posts.posts };
+}
+
+export default connect(mapStateToProps, null)(PostsList);

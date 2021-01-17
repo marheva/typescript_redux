@@ -14,15 +14,7 @@ const App: React.FC = () => {
             <div className='row'>
                 <div className='col'>
                     <h2>Синхронні пости</h2>
-                    <PostsList
-                        posts={[
-                            {
-                                id: 'one',
-                                title: 'first post',
-                                content: "post's content",
-                            },
-                        ]}
-                    />
+                    <PostsList />
                 </div>
                 <div className='col'>
                     <h2>Acинхронні пости</h2>
