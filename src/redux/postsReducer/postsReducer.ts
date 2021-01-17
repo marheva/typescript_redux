@@ -1,4 +1,4 @@
-import { CREATE_POST, PostActionTypes } from "./types/types";
+import { CREATE_POST, FETCH_POSTS, PostActionTypes } from "./types/types";
 
 const initialState:any = {
     posts: [],
@@ -9,6 +9,8 @@ export default function postsReducer(state = initialState, action: PostActionTyp
     switch (action.type) {
         case CREATE_POST:
             return {...state, posts: [...state.posts, action.payload]}
+        case FETCH_POSTS:
+            return {...state, fetchedPosts: action.payload}
         default: return state
     }
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import createPost from '../redux/postsReducer/actions/actions';
-import { Post } from '../redux/postsReducer/types/Post';
+import { createPost } from '../redux/postsReducer/actions/actions';
 import { PostType } from './post.model';
 
 class PostForm extends React.Component<any, PostType> {

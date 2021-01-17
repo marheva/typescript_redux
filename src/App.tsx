@@ -18,7 +18,7 @@ const App: React.FC = () => {
                 </div>
                 <div className='col'>
                     <h2>Acинхронні пости</h2>
-                    <FetchedPostsList posts={[]} />
+                    <FetchedPostsList />
                 </div>
             </div>
         </div>

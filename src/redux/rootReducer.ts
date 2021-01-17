@@ -1,4 +1,5 @@
-import { combineReducers, createStore } from "redux"
+import { combineReducers, createStore, compose, applyMiddleware} from "redux"
+import thunk from "redux-thunk";
 import postsReducer from "./postsReducer/postsReducer"
 
 export const rootReducer = combineReducers({
@@ -6,4 +7,9 @@ export const rootReducer = combineReducers({
 })
 
 export type AppState = ReturnType<typeof rootReducer>;
-export const store = createStore(rootReducer);
+
+export const store = createStore(rootReducer, compose(
+    applyMiddleware(
+        thunk
+    )
+));
