@@ -1,10 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { Provider } from 'react-redux';
+import FetchedPostsList from './components/FetchedPostsList';
+import PostForm from './components/PostForm';
+import PostsList from './components/PostsList';
 
 const App: React.FC = () => {
-    return <div>wwwww</div>;
+    return (
+        <div className={'container pt-3'}>
+            <div className='row'>
+                <div className='col'>
+                    <PostForm />
+                </div>
+            </div>
+            <div className='row'>
+                <div className='col'>
+                    <h2>Синхронні пости</h2>
+                    <PostsList
+                        posts={[
+                            {
+                                id: 'one',
+                                title: 'first post',
+                                content: "post's content",
+                            },
+                        ]}
+                    />
+                </div>
+                <div className='col'>
+                    <h2>Acинхронні пости</h2>
+                    <FetchedPostsList posts={[]} />
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default App;
