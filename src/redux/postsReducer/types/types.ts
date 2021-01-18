@@ -16,6 +16,5 @@ export interface FetchPostsAction {
 }
 
 export type PostActionTypes = CreatePostAction | FetchPostsAction;
-export type AppActions = PostActionTypes;
 
 export { CREATE_POST, FETCH_POSTS };

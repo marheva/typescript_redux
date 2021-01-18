@@ -1,12 +1,13 @@
-import { HIDE_LOADER, PostActions, SHOW_LOADER } from "../types/types";
+import { AppActions } from "../../rootTypes";
+import { HIDE_LOADER, SHOW_LOADER } from "../types/types";
 
-export function showLoader(): PostActions {
+export function showLoader(): AppActions {
   return {
     type: SHOW_LOADER,
   };
 }
 
-export function hideLoader(): PostActions {
+export function hideLoader(): AppActions {
   return {
     type: HIDE_LOADER,
   };

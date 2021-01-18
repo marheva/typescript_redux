@@ -11,7 +11,6 @@ export interface HideLoaderAction {
   type: typeof HIDE_LOADER;
 }
 
-export type PostActionTypes = ShowLoaderAction | HideLoaderAction;
-export type PostActions = PostActionTypes;
+export type AppActionTypes = ShowLoaderAction | HideLoaderAction;
 
 export { SHOW_LOADER, HIDE_LOADER };
