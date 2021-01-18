@@ -31,3 +31,8 @@ export function fetchPosts(): (dispatch: Dispatch<AppActions>) => void {
     }
   };
 }
+export function fetchSagaPosts() {
+  return {
+    type: "FETCH_SAGA_POSTS",
+  };
+}

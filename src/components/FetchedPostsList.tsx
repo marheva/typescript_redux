@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPosts } from "../redux/postsReducer/actions/actions";
+import { fetchPosts, fetchSagaPosts } from "../redux/postsReducer/actions/actions";
 import Loader from "./Loader/Loader";
 import Post from "./Post";
 import { PostType } from "./post.model";
@@ -17,7 +17,7 @@ function FetchedPostsList(): JSX.Element {
   return (
     <div>
       {!posts.length ? (
-        <button className={"btn btn-primary"} onClick={() => dispatch(fetchPosts())}>
+        <button className={"btn btn-primary"} onClick={() => dispatch(fetchSagaPosts())}>
           {"Download Posts"}
         </button>
       ) : (
