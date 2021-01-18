@@ -1,5 +1,3 @@
-import { Loader } from "./Loader";
-
 const SHOW_LOADER = "APP/SHOW_LOADER";
 const HIDE_LOADER = "APP/HIDE_LOADER";
 

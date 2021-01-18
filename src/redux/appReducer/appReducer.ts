@@ -1,6 +1,7 @@
+import { Loader } from "./types/Loader";
 import { AppActionTypes, HIDE_LOADER, SHOW_LOADER } from "./types/types";
 
-const initialState: any = {
+const initialState: Loader = {
   loading: false,
 };
 
