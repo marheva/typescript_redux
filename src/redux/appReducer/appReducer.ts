@@ -1,0 +1,16 @@
+
+import { HIDE_LOADER, PostActionTypes, SHOW_LOADER } from "./types/types"
+
+const initialState:any = {
+    loading: false
+}
+
+export default function appReducer(state = initialState, action: PostActionTypes ) {
+    switch (action.type) {
+        case SHOW_LOADER:
+            return {...state, loading: true}
+        case HIDE_LOADER:
+            return {...state, loading: false}
+        default: return state
+    }
+}
