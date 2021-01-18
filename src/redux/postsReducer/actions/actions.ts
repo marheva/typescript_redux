@@ -1,4 +1,6 @@
 import { Dispatch } from "redux";
+import { showAlert } from "../../alertReducer/actions/actions";
+import { Alert } from "../../alertReducer/types/Alert";
 import { hideLoader, showLoader } from "../../appReducer/actions/actions";
 
 import { AppActions } from "../../rootTypes";
@@ -14,13 +16,18 @@ export function createPost(post: Post): AppActions {
 
 export function fetchPosts(): (dispatch: Dispatch<AppActions>) => void {
   return async (dispatch: Dispatch<AppActions>) => {
-    dispatch(showLoader());
-    const response = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=5");
-    const json = await response.json();
-    dispatch({
-      type: FETCH_POSTS,
-      payload: json,
-    });
-    dispatch(hideLoader());
+    try {
+      dispatch(showLoader());
+      const response = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=5");
+      const json = await response.json();
+      dispatch({
+        type: FETCH_POSTS,
+        payload: json,
+      });
+      dispatch(hideLoader());
+    } catch (e) {
+      dispatch(hideLoader());
+      dispatch(showAlert(("ddd" as unknown) as Alert) as any);
+    }
   };
 }
