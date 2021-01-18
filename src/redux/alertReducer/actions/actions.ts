@@ -1,9 +1,17 @@
+import { Dispatch } from "redux";
 import { AppActions } from "../../rootTypes";
+import { Alert } from "../types/Alert";
 import { HIDE_ALERT, SHOW_ALERT } from "../types/types";
 
-export function showAlert(): AppActions {
-  return {
-    type: SHOW_ALERT,
+export function showAlert(text: Alert): (dispatch: Dispatch<AppActions>) => void {
+  return (dispatch: Dispatch<AppActions>) => {
+    dispatch({
+      type: SHOW_ALERT,
+      payload: text,
+    });
+    setTimeout(() => {
+      dispatch(hideAlert());
+    }, 2000);
   };
 }
 

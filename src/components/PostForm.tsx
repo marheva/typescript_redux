@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { showAlert } from '../redux/alertReducer/actions/actions';
 import { createPost } from '../redux/postsReducer/actions/actions';
+import Alert from './Alert/Alert';
 import { PostType } from './post.model';
 
 class PostForm extends React.Component<any, PostType> {
@@ -15,12 +17,12 @@ class PostForm extends React.Component<any, PostType> {
         event.preventDefault();
         const { title } = this.state;
         if (!title.trim()) {
-            return;
+            return this.props.showAlert('ERROR');
         }
         const newPost = {
             title: title,
             id: Date.now().toString(),
-            content: 'dddd',
+            content: 'STATIC CONTENT',
         };
         this.props.createPost(newPost);
         this.setState({ title: '' });
@@ -40,6 +42,7 @@ class PostForm extends React.Component<any, PostType> {
     public render() {
         return (
             <form onSubmit={this.submitHandler}>
+                {!!this.props.alert && <Alert type={'primary'} text={this.props.alert} />}
                 <div className='form-group'>
                     <label htmlFor='title'>Post's title</label>
                     <input
@@ -60,5 +63,10 @@ class PostForm extends React.Component<any, PostType> {
 }
 const mapDispatchToProps = {
     createPost: createPost,
+    showAlert: showAlert
 };
-export default connect(null, mapDispatchToProps)(PostForm);
+
+const mapStateToProps = (state: any) => ({
+    alert: state.alert.alert
+})
+export default connect(mapStateToProps, mapDispatchToProps)(PostForm);

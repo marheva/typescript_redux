@@ -12,8 +12,8 @@ export function createPost(post: Post): AppActions {
   };
 }
 
-export function fetchPosts(): AppActions | any {
-  return async (dispatch: Dispatch<AppActions | AppActions>) => {
+export function fetchPosts(): (dispatch: Dispatch<AppActions>) => void {
+  return async (dispatch: Dispatch<AppActions>) => {
     dispatch(showLoader());
     const response = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=5");
     const json = await response.json();

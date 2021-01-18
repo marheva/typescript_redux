@@ -3,8 +3,6 @@ import { Post } from "./Post";
 const CREATE_POST = "POST/CREATE_POST";
 const FETCH_POSTS = "POST/FETCH_POSTS";
 
-const SHOW_LOADER = "APP/SHOW_LOADER";
-const HIDE_LOADER = "APP/HIDE_LOADER";
 export interface CreatePostAction {
   type: typeof CREATE_POST;
   payload: Post;
